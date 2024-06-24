@@ -4,7 +4,7 @@
     "build": "next build",
     "dev": "next dev",
     "start": "next start",
-    "build:css": "tailwindcss -i ./styles/global.css -o ./dist/global.css --watch"
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@prisma/client": "^5.15.1",
