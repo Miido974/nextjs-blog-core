@@ -4,6 +4,9 @@ import utilStyles from '../styles/utils.module.css';
 import { getSortedPostsData } from '../lib/posts';
 import Link from 'next/link';
 import Date from '../components/date';
+import buttonStyles from '../styles/Button.module.css';
+
+
 
 export default function Home({ allPostsData }) {
   return (
@@ -19,7 +22,16 @@ export default function Home({ allPostsData }) {
         </p>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
+        <div className="flex items-center justify-between">
+          <h2 className={utilStyles.headingLg}>Blog 
+              <Link href="/new-post" legacyBehavior>
+              {/* Apply the button class from the CSS module */}
+              <a className={buttonStyles.button}>
+                New Post
+              </a>
+              </Link>
+          </h2>          
+        </div>
         <ul className={utilStyles.list}>
           {allPostsData.map(({ id, date, title }) => (
             <li className={utilStyles.listItem} key={id}>
